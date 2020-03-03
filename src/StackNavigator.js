@@ -37,7 +37,7 @@ const Header = ({ scene, previous, navigation }) => {
             size={40}
             source={{
               uri:
-                "https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg"
+                "https://s.gravatar.com/avatar/16461afaaefa3fea4306052b23f659ea?s=80"
             }}
           />
         </TouchableOpacity>
