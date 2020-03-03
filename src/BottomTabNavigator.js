@@ -1,11 +1,11 @@
 // BottomTabNavigator
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { Portal, FAB } from "react-native-paper";
+import { useTheme, Portal, FAB } from "react-native-paper";
 import { useIsFocused } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
 import color from "color";
-import tabBarColor, { theme } from "globals/themes/themedColor";
+import overlay from "./utils/overlay";
 
 import { Feed } from "./Feed";
 import { Messages } from "./Messages";
@@ -16,6 +16,10 @@ const Tab = createMaterialBottomTabNavigator();
 export const BottomTabNavigator = props => {
   const safeArea = useSafeArea();
   const isFocused = useIsFocused();
+  const theme = useTheme();
+  const tabBarColor = theme.dark
+    ? overlay(6, theme.colors.surface)
+    : theme.colors.surface;
 
   const routeName = props.route.state
     ? props.route.state.routes[props.route.state.index].name
@@ -30,6 +34,7 @@ export const BottomTabNavigator = props => {
       icon = "feather";
       break;
   }
+
   return (
     <React.Fragment>
       <Tab.Navigator
