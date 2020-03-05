@@ -24,7 +24,7 @@ const Header = ({ scene, previous, navigation }) => {
     <Appbar.Header theme={{ colors: { primary: theme.colors.surface } }}>
       {previous ? (
         <Appbar.BackAction
-          onPress={navigation.goBack}
+          onPress={() => navigation.goBack()}
           color={theme.colors.primary}
         />
       ) : (
